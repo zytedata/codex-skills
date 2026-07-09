@@ -1,0 +1,8 @@
+{
+  "name": "zyte-web-data",
+  "description": "Zyte Web Data for Codex CLI",
+  "version": "0.2.2",
+  "homepage": "https://github.com/zytedata/codex-skills",
+  "repository": "https://github.com/zytedata/codex-skills",
+  "skills": "./skills/"
+}

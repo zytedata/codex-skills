@@ -1,0 +1,21 @@
+{
+  "name": "zyte-ai",
+  "interface": {
+    "displayName": "Zyte Web Data"
+  },
+  "plugins": [
+    {
+      "name": "zyte-web-data",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/zytedata/codex-skills.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "INSTALLED_BY_DEFAULT",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
