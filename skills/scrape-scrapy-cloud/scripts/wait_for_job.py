@@ -1,7 +1,7 @@
 # /// script
 # requires-python = ">=3.11"
 # dependencies = [
-#   "shub>=2.15.0",
+#   "shub>=2.18.1",
 # ]
 # ///
 """Block until a Scrapy Cloud job finishes, then print its final job object.

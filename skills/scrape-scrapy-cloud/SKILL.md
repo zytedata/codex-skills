@@ -355,6 +355,11 @@ uv run ${CLAUDE_SKILL_DIR}/scripts/scrapy_cloud_api.py HTTP_METHOD API_URL [-q Q
 
 With arbitrary query parameters (`-q`) and body parameters (`-b`) as needed per endpoint. See the script's help message for details.
 
+**Output format**: the script prints the HTTP status code on the first line,
+then the response body on the remaining lines. Use the status line to detect
+errors (e.g. `401`/`403` auth failures); when you only need the body, ignore
+the first line. The response bodies shown below omit the leading status line.
+
 ### List jobs
 
 ```bash
