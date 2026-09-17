@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'if [ -n \"${PLUGIN_ROOT:-}\" ]; then uv run --no-project \"$PLUGIN_ROOT/skills/scrape/scripts/feedback_state.py\" hook --source codex_cli; fi'",
+            "statusMessage": "checking optional scrape feedback"
+          }
+        ]
+      }
+    ]
+  }
+}

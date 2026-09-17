@@ -1,3 +1,5 @@
+This file is 58 lines long; read all of them.
+
 # License Agreement for Zyte Web Data for Codex CLI
 
 This End-User License Agreement ("EULA") constitutes a legal agreement between you (either an individual or a legal entity) and Zyte Group Ltd. ("Zyte") and governs the use of the Zyte Web Data for Codex CLI software offered through https://github.com/zytedata/codex-skills ("Software").
