@@ -4,7 +4,7 @@ description: Plan a web scrape and author a validated extraction spec — explor
 argument-hint: "[url] [what to extract]"
 ---
 
-This file is 542 lines long; read all of them.
+This file is 544 lines long; read all of them.
 
 `SKILL_DIR` below stands for the absolute path of the directory that contains this file. `SKILLS_DIR` stands for the directory that holds every skill directory, one of them being `SKILL_DIR`.
 
@@ -417,7 +417,7 @@ This writes fresh extractions from the analyzed detail-page sample.
 
 #### Navigation
 
-Write `{site_path}/navigation/spec.json` with the fixed navigation schema from `SKILLS_DIR/scrape/references/extraction-spec.md`, using the site URL and `nav_html_variant` (reported by the exploration).
+Write `{site_path}/navigation/spec.json` with the fixed navigation schema from `SKILLS_DIR/scrape/references/extraction-spec.md`, using the site URL, `nav_html_variant` (reported by the exploration), the URLs the crawl starts at, and a plain-English `scope` of what it must cover — the sections the user asked for, or the whole site when they asked for no limit.
 
 Navigation values were already copied from the exploration output.
 
@@ -509,6 +509,7 @@ Ask the user whether they approve this plan or want to change anything presented
 
 On approval, continue to the report. On any redirect, apply it and re-present:
 - **Schema change** (drop/keep/rename/edit) → update `{site_path}/{data_type}/spec.json`
+- **Scope change** (a different section, added filtering, different start URLs) → update `scope`/`start_urls` in `{site_path}/navigation/spec.json`
 - **Skip the spider** → drop the "Generate the spider" step and set spider_create = no
 - **Settings** (project dir/name, Zyte, variant) → update the corresponding line
 
@@ -534,6 +535,7 @@ Details:
 - Project name: {project_name}
 - Create the spider: {yes | no}
 - Start URLs: {comma-separated list}
+- Scope: {scope}
 - Using Zyte API: {yes | no}
 ```
 
