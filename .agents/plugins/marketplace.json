@@ -1,7 +1,7 @@
 {
   "name": "zyte-ai",
   "interface": {
-    "displayName": "Zyte Web Data"
+    "displayName": "Zyte Agentic Web Data"
   },
   "plugins": [
     {

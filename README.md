@@ -1,18 +1,18 @@
-This file is 178 lines long; read all of them.
+This file is 196 lines long; read all of them.
 
 <p align="center">
 	<img src="assets/zyte-logo.png" alt="Zyte" width="180">
 </p>
 
-<h1 align="center">Zyte Web Data for Codex CLI</h1>
+<h1 align="center">Zyte Agentic Web Data for Codex CLI</h1>
 
 <p align="center">
 	From a plain-English prompt to a working Scrapy spider.
 </p>
 
 <p align="center">
-	<a href="https://github.com/zytedata/codex-skills/releases/tag/0.3.1">
-		<img src="https://img.shields.io/badge/version-0.3.1-blue" alt="Version 0.3.1">
+	<a href="https://github.com/zytedata/codex-skills/releases/tag/0.4.0">
+		<img src="https://img.shields.io/badge/version-0.4.0-blue" alt="Version 0.4.0">
 	</a>
 	<a href="https://github.com/zytedata/codex-skills/blob/main/LICENSE.md">
 		<img src="https://img.shields.io/badge/license-Zyte%20EULA-b02cce" alt="Zyte EULA">
@@ -35,6 +35,23 @@ codex plugin add zyte-web-data@zyte-ai
 
 If Codex CLI is already running, restart the active session to load the plugin.
 
+### Codex in ChatGPT
+
+A workspace admin, or anyone with plugin import permissions, can install the plugin for the whole ChatGPT workspace:
+
+1. Go to **Workspace settings** → **Plugins** → **Add** → **Import marketplace**.
+2. Enter `zytedata/codex-skills` as the GitHub repository. Leave **Path** and **Branch** empty, so that the workspace keeps getting plugin updates.
+3. Select **Import marketplace**, and authorize GitHub access if prompted.
+4. Search for **Zyte** in the plugin directory, open it, and select **Install**.
+
+To use it, select **Try it** from the plugin page, `@`-mention it, or pick it from **Plugins** in the composer.
+
+The plugin declares the [Zyte MCP](https://docs.zyte.com/zyte-web-data/mcp.html) server itself, so do not add it with `codex mcp add` as well. Sign in to it once, in the browser:
+
+```bash
+codex mcp login zyte
+```
+
 ---
 
 ## What it does
@@ -43,7 +60,7 @@ This is Zyte's official [Codex CLI](https://developers.openai.com/codex/cli) plu
 
 The plugin explores the target site, discovers available fields, and presents a schema for your approval before generating a single line of code. After you confirm the schema, it creates a Scrapy project with all dependencies configured, generates web-poet page objects and test fixtures, wires up the spider, and runs a smoke test to verify that extraction is working before handing the project back to you.
 
-Optionally, use `/zyte` to deploy directly to [Scrapy Cloud](https://www.zyte.com/scrapy-cloud/) for scheduled runs, job history, and monitoring. A [free tier is available](https://docs.zyte.com/scrapy-cloud/pricing.md).
+Optionally, use `/zyte` to deploy directly to [Scrapy Cloud](https://www.zyte.com/scrapy-cloud/) for scheduled runs, job history, and monitoring, which the Zyte MCP handles once the spider is deployed. A [free tier is available](https://docs.zyte.com/scrapy-cloud/pricing.md).
 
 ---
 
@@ -95,7 +112,7 @@ uv run pytest fixtures/
 
 | Skill | Description |
 |---|---|
-| `zyte` | Interact with Zyte's APIs and cloud services: set up your Zyte account and credentials; deploy projects, schedule spiders, list/stop jobs, and view items or logs on [Scrapy Cloud](https://www.zyte.com/scrapy-cloud/); query historical [Zyte API](https://www.zyte.com/zyte-api/) usage stats; look up Zyte API pricing and per-website costs; and answer how-to and documentation questions about Zyte from the official docs |
+| `zyte` | Zyte work the Zyte MCP does not cover: set up your Zyte account and credentials; deploy projects to [Scrapy Cloud](https://www.zyte.com/scrapy-cloud/) and export all items, logs or requests of a job; look up [Zyte API](https://www.zyte.com/zyte-api/) plan pricing; and answer how-to and documentation questions about Zyte from the official docs |
 
 ---
 
@@ -103,6 +120,7 @@ uv run pytest fixtures/
 
 - [Codex CLI](https://developers.openai.com/codex/cli)
 - [`uv`](https://docs.astral.sh/uv/) — used to create and manage the Scrapy project
+- A [Zyte](https://www.zyte.com/) account, signed in once through the [Zyte MCP](https://docs.zyte.com/zyte-web-data/mcp.html) (see [Install](#install)) — used for Scrapy Cloud jobs, Zyte API usage stats and per-website prices
 
 Project dependencies (scrapy, scrapy-poet, scrapy-zyte-api, web-poet, extruct, price-parser, pytest) are installed automatically by the skills.
 

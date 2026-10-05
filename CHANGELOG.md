@@ -1,6 +1,23 @@
-This file is 73 lines long; read all of them.
+This file is 90 lines long; read all of them.
 
 # Changelog
+
+## 0.4.0 (2026-10-05)
+
+### Changed
+
+- The plugin now declares the
+  [Zyte MCP](https://docs.zyte.com/zyte-web-data/mcp.html) server, which takes
+  over running, scheduling, stopping and inspecting Scrapy Cloud jobs, recorded
+  Zyte API usage stats and per-website prices from `/zyte`. Sign in to it once,
+  as described in the [README](README.md#install); until you do, `/zyte`
+  answers those requests with how to connect it.
+
+### Added
+
+- `/zyte` can export all items, logs or requests of a Scrapy Cloud job to a
+  file, for when the truncated results of the Zyte MCP are not enough.
+- The README now covers installing the plugin for a whole ChatGPT workspace.
 
 ## 0.3.1 (2026-09-22)
 
